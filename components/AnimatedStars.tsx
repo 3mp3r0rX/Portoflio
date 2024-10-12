@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useEffect, useRef } from 'react';
 import { useTheme } from 'next-themes';
@@ -47,7 +47,10 @@ const AnimatedStars = () => {
       });
     }
 
-    function createShootingStar() {
+    function createShootingStar(): ShootingStar {
+      if(!canvas){
+        throw new Error('Canvas is not available')
+      }
       return {
         x: Math.random() * canvas.width,
         y: 0,
@@ -58,6 +61,7 @@ const AnimatedStars = () => {
     }
 
     function drawShootingStar(star: ShootingStar) {
+      if (!ctx) return;
       ctx.save();
       ctx.beginPath();
       ctx.moveTo(star.x, star.y);
@@ -69,8 +73,8 @@ const AnimatedStars = () => {
     }
 
     function animate() {
+      if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
       ctx.fillStyle = theme === 'dark' ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.5)';
       stars.forEach(star => {
         ctx.beginPath();
@@ -84,6 +88,7 @@ const AnimatedStars = () => {
         if (star.y < 0 || star.y > canvas.height) star.vy = -star.vy;
       });
 
+      // Handle shooting star
       if (shootingStar) {
         drawShootingStar(shootingStar);
         shootingStar.x += shootingStar.speed;
@@ -93,7 +98,7 @@ const AnimatedStars = () => {
         if (shootingStar.opacity <= 0 || shootingStar.x > canvas.width || shootingStar.y > canvas.height) {
           shootingStar = null;
         }
-      } else if (Math.random() < 0.01) { 
+      } else if (Math.random() < 0.01) {
         shootingStar = createShootingStar();
       }
 
@@ -103,8 +108,10 @@ const AnimatedStars = () => {
     animate();
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
     };
 
     window.addEventListener('resize', handleResize);
