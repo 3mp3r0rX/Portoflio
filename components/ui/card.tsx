@@ -2,6 +2,12 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
+
+export interface CardProps {
+  className?: string;
+  chilldren?: React.ReactNode;
+}
+
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
