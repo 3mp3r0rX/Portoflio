@@ -19,7 +19,7 @@ const Projects = () => {
     {
       title: "Uni-Abroad",
       description: "A Next.js, Typescript app, Uni-Abroad is an innovative online platform designed to help students navigate their journey of studying abroad.",
-      image: "/assets/images/uni-abroad.png", 
+      image: "/assets/images/Uni-Abroad.png", 
       demoLink: "https://uni-abroad.net/",
       codeLink: "#"
     },
