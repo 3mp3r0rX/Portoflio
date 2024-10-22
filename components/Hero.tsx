@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Code, Lightbulb, Rocket } from 'lucide-react';
+import { ArrowRight, Code, Lightbulb, Rocket, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
@@ -64,8 +64,14 @@ const Hero = () => {
             </Button>
           </Link>
           <Link href="#contact" passHref>
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="outline" className="mr-4">
               Get In Touch
+            </Button>
+          </Link>
+          <Link href="/Majed-El-naser.pdf" passHref>
+            <Button size="lg" variant="outline">
+              Download My CV
+              <Download className="ml-2" size={16} />
             </Button>
           </Link>
         </motion.div>
