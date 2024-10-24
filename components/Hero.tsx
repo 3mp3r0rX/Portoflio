@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image'; // Import the Next.js Image component
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Code, Lightbulb, Rocket, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -9,6 +10,7 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-background to-secondary">
       <div className="text-center max-w-3xl mx-auto px-4">
+        
         <motion.h1 
           className="text-4xl md:text-6xl font-bold mb-6"
           initial={{ opacity: 0, y: -20 }}
@@ -17,6 +19,19 @@ const Hero = () => {
         >
           Hello, I'm <span className="gradient-text">Majed El-Naser</span>
         </motion.h1>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image
+            src="/me.png"
+            alt="Majed El-Naser"
+            width={270} 
+            height={250}
+            className="rounded-full mx-auto mb-4"
+          />
+        </motion.div>
         <motion.h2 
           className="text-2xl md:text-3xl mb-6"
           initial={{ opacity: 0, y: -20 }}

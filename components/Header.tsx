@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <header className="py-4 px-6 bg-background/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
       <nav className="max-w-6xl mx-auto flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold font-poppins">
+        <Link href="/" className="text-xl font-bold font-poppins">
           Majed El-Naser
         </Link>
         <div className="hidden md:flex space-x-8 items-center justify-center flex-grow">
