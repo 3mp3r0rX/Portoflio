@@ -8,17 +8,18 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-background to-secondary">
-      <div className="text-center max-w-3xl mx-auto px-4">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-background to-secondary px-4 sm:px-6 lg:px-8">
+      <div className="text-center max-w-3xl mx-auto">
         
         <motion.h1 
-          className="text-4xl md:text-6xl font-bold mb-6"
+          className="text-3xl sm:text-4xl md:text-6xl font-bold pt-4 sm:mb-6"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           Hello, I'm <span className="gradient-text">Majed El-Naser</span>
         </motion.h1>
+
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -27,21 +28,24 @@ const Hero = () => {
           <Image
             src="/me.png"
             alt="Majed El-Naser"
-            width={270} 
-            height={250}
-            className="rounded-full mx-auto mb-4"
+            width={240} 
+            height={240}
+            className="rounded-full mx-auto mb-4 sm:mb-6"
+            priority
           />
         </motion.div>
+
         <motion.h2 
-          className="text-2xl md:text-3xl mb-6"
+          className="text-xl sm:text-2xl md:text-3xl mb-4 sm:mb-6"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           Crafting Digital Experiences
         </motion.h2>
+
         <motion.div
-          className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 mb-8"
+          className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-6 sm:mb-8"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -59,32 +63,35 @@ const Hero = () => {
             <span>Tech Enthusiast</span>
           </div>
         </motion.div>
+
         <motion.p 
-          className="text-lg md:text-xl mb-8"
+          className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 px-2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           Transforming ideas into elegant, efficient, and user-centric digital solutions. Let's build something amazing together!
         </motion.p>
+
         <motion.div
+          className="space-y-4 sm:space-y-0 sm:space-x-4 flex flex-col sm:flex-row justify-center items-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           <Link href="#projects" passHref>
-            <Button size="lg" className="mr-4">
+            <Button size="lg" className="w-full sm:w-auto">
               Explore My Work
               <ArrowRight className="ml-2" size={16} />
             </Button>
           </Link>
           <Link href="#contact" passHref>
-            <Button size="lg" variant="outline" className="mr-4">
+            <Button size="lg" variant="outline" className="w-full sm:w-auto">
               Get In Touch
             </Button>
           </Link>
           <Link href="/Majed-El-naser.pdf" passHref>
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="outline" className="w-full sm:w-auto">
               Download My CV
               <Download className="ml-2" size={16} />
             </Button>
