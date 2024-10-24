@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import Image from 'next/image'; // Import the Next.js Image component
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Code, Lightbulb, Rocket, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
