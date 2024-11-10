@@ -13,7 +13,6 @@ export async function POST(req: Request) {
   });
 
   try {
-    // Send the email
     await transporter.sendMail({
       from: process.env.OUTLOOK_EMAIL, 
       to: process.env.EMAIL_TO, 

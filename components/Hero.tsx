@@ -1,9 +1,8 @@
 "use client";
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Code, Lightbulb, Rocket, Download } from 'lucide-react';
+import { ArrowRight, Code, Lightbulb, Rocket, LineChart, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
@@ -19,21 +18,6 @@ const Hero = () => {
         >
           Hello, I'm <span className="gradient-text">Majed El-Naser</span>
         </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Image
-            src="/me.png"
-            alt="Majed El-Naser"
-            width={240} 
-            height={240}
-            className="rounded-full mx-auto mb-4 sm:mb-6"
-            priority
-          />
-        </motion.div>
 
         <motion.h2 
           className="text-xl sm:text-2xl md:text-3xl mb-4 sm:mb-6"
@@ -62,6 +46,10 @@ const Hero = () => {
             <Rocket className="mr-2" size={24} />
             <span>Tech Enthusiast</span>
           </div>
+          <div className="flex items-center">
+            <LineChart className="mr-2" size={24} />
+            <span>Data Analyst</span>
+          </div>
         </motion.div>
 
         <motion.p 
@@ -79,13 +67,13 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <Link href="#projects" passHref>
+          <Link href="/Projects" passHref>
             <Button size="lg" className="w-full sm:w-auto">
               Explore My Work
               <ArrowRight className="ml-2" size={16} />
             </Button>
           </Link>
-          <Link href="#contact" passHref>
+          <Link href="/Contact" passHref>
             <Button size="lg" variant="outline" className="w-full sm:w-auto">
               Get In Touch
             </Button>

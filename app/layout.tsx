@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import AnimatedStars from '@/components/AnimatedStars';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const poppins = Poppins({ weight: ['400', '600', '700'], subsets: ['latin'], variable: '--font-poppins' });
@@ -24,7 +26,9 @@ export default function RootLayout({
       <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <AnimatedStars />
+          <Header />
           {children}
+          <Footer />
           <ScrollToTopButton />
           <Toaster />
         </ThemeProvider>

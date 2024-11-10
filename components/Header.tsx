@@ -1,67 +1,83 @@
 "use client"
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { ModeToggle } from '@/components/mode-toggle';
-import { Menu } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState } from 'react'
+import Link from 'next/link'
+import { ModeToggle } from './mode-toggle'
+import { cn } from '@/lib/utils'
+import { Button } from './ui/button'
+import { 
+  Home,
+  User,
+  Code2,
+  Briefcase,
+  Mail,
+  Menu,
+  X
+} from 'lucide-react'
+
+const navItems = [
+  { href: "/", label: "Home", icon: Home },
+  { href: "/About", label: "About", icon: User },
+  { href: "/Skills", label: "Skills", icon: Code2 },
+  { href: "/Projects", label: "Projects", icon: Briefcase },
+  { href: "/Contact", label: "Contact", icon: Mail },
+]
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  const navItems = [
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
-  ];
+  const [isCollapsed, setIsCollapsed] = useState(false)
 
   return (
-    <header className="py-4 px-6 bg-background/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
-      <nav className="max-w-6xl mx-auto flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold font-poppins">
-          Majed El-Naser
-        </Link>
-        <div className="hidden md:flex space-x-8 items-center justify-center flex-grow">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:text-primary">
-              {item.label}
-            </Link>
-          ))}
-        </div>
-        <div className="flex items-center">
-          <ModeToggle />
-          <Button variant="ghost" size="icon" onClick={toggleMenu} className="md:hidden ml-2">
-            <Menu />
-          </Button>
-        </div>
-      </nav>
-      {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm"
-        >
-          <div className="flex flex-col items-center py-4 space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="hover:text-primary"
-                onClick={toggleMenu}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </motion.div>
+    <aside
+      className={cn(
+        "fixed left-0 top-0 z-40 h-screen bg-background/80 backdrop-blur-sm border-r transition-all duration-300",
+        isCollapsed ? "w-16" : "w-[280px]"
       )}
-    </header>
-  );
-};
+    >
+      <div className="flex h-full flex-col justify-between p-4">
+        <div>
+          <div className="flex items-center justify-between mb-8">
+            {!isCollapsed && (
+              <Link href="/" className="text-xl font-bold">
+                Majed El-Naser
+              </Link>
+            )}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsCollapsed(!isCollapsed)}
+              className="h-9 w-9"
+            >
+              {isCollapsed ? <Menu className="h-4 w-4" /> : <X className="h-4 w-4" />}
+            </Button>
+          </div>
+          <nav className="space-y-2">
+            {navItems.map((item) => {
+              const Icon = item.icon
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-foreground",
+                    "hover:bg-accent hover:text-accent-foreground"
+                  )}
+                >
+                  <Icon className="h-4 w-4" />
+                  {!isCollapsed && <span>{item.label}</span>}
+                </Link>
+              )
+            })}
+          </nav>
+        </div>
+        <div className={cn(
+          "flex",
+          isCollapsed ? "justify-center" : "justify-between"
+        )}>
+          <ModeToggle />
+        </div>
+      </div>
+    </aside>
+  )
+}
 
-export default Header;
+export default Header

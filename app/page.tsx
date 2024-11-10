@@ -1,27 +1,31 @@
-import Header from '@/components/Header';
+'use client'
+
+import { useState, useEffect } from 'react';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Skills from '@/components/Skills';
-import Projects from '@/components/Projects';
-import Certifications from '@/components/Certifications';
-import Education from '@/components/Education';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import Spinner from '@/components/Spinner'; 
 
 export default function Home() {
+  const [loading, setLoading] = useState(true); 
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); 
+    }, 2000);
+
+    return () => clearTimeout(timer); 
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Education />
-        <Certifications />
-        <Contact />
+        {loading ? (
+          <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-gray-900 bg-opacity-50 z-50">
+            <Spinner />
+          </div>
+        ) : (
+          <Hero />
+        )}
       </main>
-      <Footer />
     </div>
   );
 }
