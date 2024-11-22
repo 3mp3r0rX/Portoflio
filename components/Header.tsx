@@ -30,7 +30,7 @@ const Header = () => {
     <aside
       className={cn(
         "fixed left-0 top-0 z-40 h-screen bg-background/80 backdrop-blur-sm border-r transition-all duration-300",
-        isCollapsed ? "w-16" : "w-[280px]"
+        isCollapsed ? "w-0 sm:w-16" : "w-[200px]"
       )}
     >
       <div className="flex h-full flex-col justify-between p-4">
