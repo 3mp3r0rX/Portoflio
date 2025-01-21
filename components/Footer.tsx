@@ -24,7 +24,7 @@ const Footer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <a href="https://github.com/mremperorx" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+            <a href="https://github.com/3mp3r0rX" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
               <Github size={25} />
             </a>
             <a href="https://www.linkedin.com/in/majedel-naser" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">

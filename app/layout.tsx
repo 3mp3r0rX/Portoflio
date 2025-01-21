@@ -14,6 +14,9 @@ const poppins = Poppins({ weight: ['400', '600', '700'], subsets: ['latin'], var
 export const metadata: Metadata = {
   title: 'Majed El-Naser - Personal Portfolio',
   description: 'A showcase of my skills, projects, and experiences',
+  icons:{
+    icon:"/Logo.png"
+  }
 };
 
 export default function RootLayout({
@@ -23,8 +26,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+    <link rel="icon" href="/Logo.png" />
+    <link rel="apple-touch-icon" href="/Logo.png" />
+  </head>
       <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <AnimatedStars />
           <Header />
           {children}

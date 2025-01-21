@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ModeToggle } from './mode-toggle'
 import { cn } from '@/lib/utils'
 import { Button } from './ui/button'
@@ -38,7 +39,13 @@ const Header = () => {
           <div className="flex items-center justify-between mb-8">
             {!isCollapsed && (
               <Link href="/" className="text-xl font-bold">
-                Majed El-Naser
+                <Image
+                 src="/Logo1.png"
+                 alt="me"
+                 width={1000}
+                height={200}
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
               </Link>
             )}
             <Button

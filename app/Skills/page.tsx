@@ -12,7 +12,6 @@ const skills = [
     items: [
       { name: "JavaScript", icon: "/javascript.svg", color: "from-yellow-400 to-yellow-600" },
       { name: "TypeScript", icon: "/typescript.svg", color: "from-blue-400 to-blue-600" },
-      { name: "React", icon: "/react.svg", color: "from-cyan-400 to-cyan-600" },
       { name: "Next.js", icon: "/nextjs.svg", color: "from-gray-600 to-gray-900" },
     ]
   },
@@ -27,6 +26,7 @@ const skills = [
   {
     category: "Frameworks & Tools",
     items: [
+      { name: "React", icon: "/react.svg", color: "from-cyan-400 to-cyan-600" },
       { name: "Angular", icon: "/angular.svg", color: "from-red-400 to-red-600" },
       { name: "Tailwind CSS", icon: "/tailwind.png", color: "from-teal-400 to-teal-600" },
     ]
@@ -35,7 +35,6 @@ const skills = [
     category: "Data Analytics",
     items: [
       { name: "Python", icon: "/python.svg", color: "from-blue-400 to-blue-700" },
-      { name: "R", icon: "/r.svg", color: "from-blue-300 to-blue-500" },
       { name: "SQL", icon: "/sql.svg", color: "from-purple-500 to-purple-700" },
       { name: "Tableau", icon: "/tableau.svg", color: "from-indigo-400 to-indigo-600" },
       { name: "Power BI", icon: "/powerbi.svg", color: "from-yellow-500 to-yellow-700" },

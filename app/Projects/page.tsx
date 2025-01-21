@@ -38,6 +38,15 @@ const projects = [
     codeLink: "https://github.com/mremperorx/ITAdvisX-2",
     tags: ["Next.js", "React", "AI Integration"],
     gradient: "from-orange-500 to-red-500"
+  },
+  {
+    title:"Video Game Sales",
+    description:"Designed and developed an interactive dashboard for analyzing video game sales trends, utilizing tools like Python, Pandas, Plotly, and Streamlit. The project focuses on uncovering insights about global sales performance across genres, platforms, and regions over time. Key features include dynamic filters, visually engaging charts for trends and market share, and advanced correlation analysis using heatmaps.",
+    image: "/assets/images/vgsales.png",
+    demoLink: "https://vgsale.streamlit.app/",
+    codeLink: "https://github.com/3mp3r0rX/vgsales",
+    tags: ["Python", "Streamlit", "Pandas", "Plotly"],
+    gradient: "from-blue-500 to-green-500"
   }
 ];
 
